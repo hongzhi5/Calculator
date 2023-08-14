@@ -35,6 +35,16 @@ numbers.forEach(number => {
 
 operators.forEach(operator => {
     operator.addEventListener("click", (event) => {
+        if(displaying[displaying.length-2] == "=") {
+            displaying = displaying.slice(0, displaying.length-3);
+        };
+        for (var i = 0; i < displaying.length; i++) {
+            var currentChar = displaying[i];
+            if (allOperators.includes(currentChar)) {
+                // means there is a existing evaluation to calculate
+                resultOperate();
+            };
+        };
         displaying = displaying + " " + event.target.value + " ";
         display.textContent = displaying;
     });
@@ -42,12 +52,13 @@ operators.forEach(operator => {
 
 const equal = document.querySelector("#equal");
 const result = document.querySelector(".result");
-equal.addEventListener("click", (event) => {
+var allOperators = ['+', '–', '×', '÷'];
+
+function resultOperate() {
     var tempDisplay = displaying.replace(/\s+/g, '');
     var strArray = tempDisplay.split('');
     
     // find the index of the operator
-    var allOperators = ['+', '–', '×', '÷'];
     var operatorIndex = -1;
     for (var i = 0; i < strArray.length; i++) {
         var currentChar = strArray[i];
@@ -61,9 +72,11 @@ equal.addEventListener("click", (event) => {
         var operator = strArray[operatorIndex];
         var secNumber = parseFloat(strArray.slice(operatorIndex+1, ).join(''));
     };
-    
     result.textContent = operate(firstNumber, operator, secNumber);
-});
+    displaying = result.textContent;
+};
+
+equal.addEventListener("click", resultOperate());
 
 // clear button
 const clear = document.querySelector(".clear");
