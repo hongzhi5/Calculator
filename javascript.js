@@ -21,6 +21,7 @@ function operate(firstNumber, operator, secNumber) {
         return divide(firstNumber, secNumber);
     };
 };
+
 const display = document.querySelector(".display");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
@@ -52,31 +53,10 @@ operators.forEach(operator => {
 
 const equal = document.querySelector("#equal");
 const result = document.querySelector(".result");
+result.textContent = "0";
 var allOperators = ['+', '–', '×', '÷'];
 
-function resultOperate() {
-    var tempDisplay = displaying.replace(/\s+/g, '');
-    var strArray = tempDisplay.split('');
-    
-    // find the index of the operator
-    var operatorIndex = -1;
-    for (var i = 0; i < strArray.length; i++) {
-        var currentChar = strArray[i];
-        if (allOperators.includes(currentChar)) {
-            operatorIndex = i;
-            break;
-        };
-    };
-    if (strArray) {
-        var firstNumber = parseFloat(strArray.slice(0, operatorIndex).join(''));
-        var operator = strArray[operatorIndex];
-        var secNumber = parseFloat(strArray.slice(operatorIndex+1, ).join(''));
-    };
-    result.textContent = operate(firstNumber, operator, secNumber);
-    displaying = result.textContent;
-};
 
-equal.addEventListener("click", resultOperate());
 
 // clear button
 const clear = document.querySelector(".clear");
@@ -97,3 +77,30 @@ deleteButton.addEventListener("click", (event) => {
     display.textContent = displaying;
 });
 
+equal.addEventListener("click", resultOperate());
+
+function resultOperate() {
+    var tempDisplay = displaying.replace(/\s+/g, '');
+    var strArray = tempDisplay.split('');
+    
+    // find the index of the operator
+    var operatorIndex = -1;
+    for (var i = 0; i < strArray.length; i++) {
+        var currentChar = strArray[i];
+        if (allOperators.includes(currentChar)) {
+            operatorIndex = i;
+            break;
+        };
+    };
+    if (strArray) {
+        var firstNumber = parseFloat(strArray.slice(0, operatorIndex).join(''));
+        var operator = strArray[operatorIndex];
+        var secNumber = parseFloat(strArray.slice(operatorIndex+1, ).join(''));
+    };
+    var number = operate(firstNumber, operator, secNumber);
+    if (number.toString().length > 14) {
+        number = number.toString().slice(0, 14);
+    }
+    result.textContent = number;
+    displaying = result.textContent;
+};
