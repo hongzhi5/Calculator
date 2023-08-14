@@ -1,0 +1,54 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 400px;
+    height: 580px;
+    border: 2px solid black;
+    margin: 50px;
+}
+.around{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.screen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: right;
+    width: 370px;
+    height: 110px;
+    margin: 15px;
+    background-color: aqua;
+}
+.topButtons{
+    display: flex;
+   
+}
+.clear{
+    margin-left: 15px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    width: 190px;
+    height: 40px;
+}
+.delete{
+    margin-right: 15px;
+    margin-left: 5px;
+    margin-bottom: 15px;
+    width: 190px;
+    height: 40px;
+}
+.otherButtons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.number,
+.operator{
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
