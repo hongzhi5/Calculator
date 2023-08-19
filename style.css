@@ -1,12 +1,16 @@
 body{
     display: flex;
     justify-content: center;
+    background-color: #3f3b3b;
 }
 .container{
     width: 400px;
     height: 580px;
     border: 2px solid black;
     margin: 50px;
+    border-width: 5px;
+    border-color: #f1b062;
+    border-radius: 10px;
 }
 .around{
     display: flex;
@@ -21,7 +25,9 @@ body{
     width: 370px;
     height: 110px;
     margin: 15px;
-    background-color: aqua;
+    background-color: beige;
+    border-radius: 10px;
+    padding: 3px;
 }
 .topButtons{
     display: flex;
@@ -33,6 +39,12 @@ body{
     margin-bottom: 15px;
     width: 190px;
     height: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    background-color: beige;
+}
+.clear:hover{
+    background-color: #f1b062;
 }
 .delete{
     margin-right: 15px;
@@ -40,15 +52,44 @@ body{
     margin-bottom: 15px;
     width: 190px;
     height: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    background-color: beige;
+}
+.delete:hover{
+    background-color: #f1b062;
 }
 .otherButtons{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+   
 }
 .number,
 .operator{
     width: 75px;
     height: 75px;
     margin: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+    font-size: 30px;
+}
+.result{
+    font-size: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.display{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.operator{
+    background-color: #f1b062;
+}
+.operator:hover{
+    background-color: beige;
+}
+.number{
+    background-color: beige;
+}
+.number:hover{
+    background-color: #f1b062;
 }
